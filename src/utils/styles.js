@@ -53,6 +53,7 @@ export function fieldStyle() {
     display: "block",
     width: "100%",
     maxWidth: "100%",
+    minWidth: 0,
     padding: 10,
     boxSizing: "border-box",
     font: "inherit",
