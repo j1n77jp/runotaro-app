@@ -140,9 +140,17 @@ export default function App() {
         color: "white",
         padding: 20,
         fontFamily: "sans-serif",
+        boxSizing: "border-box",
       }}
     >
-      <div style={{ maxWidth: 1300, margin: "0 auto" }}>
+      <div
+        style={{
+          maxWidth: 1300,
+          margin: "0 auto",
+          width: "100%",
+          minWidth: 0,
+        }}
+      >
         <h1 style={{ fontSize: 32, marginBottom: 8 }}>🚤 ルノタロ競艇占い</h1>
         <p style={{ color: "#a1a1aa", marginBottom: 24 }}>
           タロット1枚で展開、1〜6艇にルノルマンを割り当ててAI補助予想する簡易版
@@ -151,12 +159,21 @@ export default function App() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "1.4fr 1fr",
+            gridTemplateColumns: "minmax(0, 1.4fr) minmax(0, 1fr)",
             gap: 20,
             alignItems: "start",
+            width: "100%",
+            minWidth: 0,
           }}
         >
-          <div style={{ display: "grid", gap: 20 }}>
+          <div
+            style={{
+              display: "grid",
+              gap: 20,
+              minWidth: 0,
+              width: "100%",
+            }}
+          >
             <BasicFormSection
               venue={venue}
               setVenue={setVenue}
@@ -187,7 +204,14 @@ export default function App() {
             />
           </div>
 
-          <div style={{ display: "grid", gap: 20 }}>
+          <div
+            style={{
+              display: "grid",
+              gap: 20,
+              minWidth: 0,
+              width: "100%",
+            }}
+          >
             <MemoSection
               venue={venue}
               raceNo={raceNo}
