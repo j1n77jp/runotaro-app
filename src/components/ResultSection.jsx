@@ -17,7 +17,7 @@ export default function ResultSection({
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
+          gridTemplateColumns: "repeat(4, minmax(0, 1fr))",
           gap: 12,
           width: "100%",
         }}
@@ -27,7 +27,7 @@ export default function ResultSection({
           <select
             value={result.first}
             onChange={(e) => updateResult("first", e.target.value)}
-            style={{ ...fieldStyle(), minWidth: 0 }}
+            style={fieldStyle()}
           >
             <option value="">選択</option>
             {resultBoatNumbers.map((n) => (
@@ -43,7 +43,7 @@ export default function ResultSection({
           <select
             value={result.second}
             onChange={(e) => updateResult("second", e.target.value)}
-            style={{ ...fieldStyle(), minWidth: 0 }}
+            style={fieldStyle()}
           >
             <option value="">選択</option>
             {resultBoatNumbers.map((n) => (
@@ -59,7 +59,7 @@ export default function ResultSection({
           <select
             value={result.third}
             onChange={(e) => updateResult("third", e.target.value)}
-            style={{ ...fieldStyle(), minWidth: 0 }}
+            style={fieldStyle()}
           >
             <option value="">選択</option>
             {resultBoatNumbers.map((n) => (
@@ -76,7 +76,7 @@ export default function ResultSection({
             value={payout}
             onChange={(e) => setPayout(e.target.value)}
             placeholder="例：12840"
-            style={{ ...fieldStyle(), minWidth: 0 }}
+            style={fieldStyle()}
           />
         </div>
       </div>
