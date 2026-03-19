@@ -20,7 +20,7 @@ export default function BasicFormSection({
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
+          gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
           gap: 12,
           marginBottom: 16,
           width: "100%",
@@ -31,7 +31,7 @@ export default function BasicFormSection({
           <select
             value={venue}
             onChange={(e) => setVenue(e.target.value)}
-            style={{ ...fieldStyle(), minWidth: 0 }}
+            style={fieldStyle()}
           >
             {venues.map((v) => (
               <option key={v} value={v}>
@@ -46,7 +46,7 @@ export default function BasicFormSection({
           <select
             value={raceNo}
             onChange={(e) => setRaceNo(e.target.value)}
-            style={{ ...fieldStyle(), minWidth: 0 }}
+            style={fieldStyle()}
           >
             {raceNumbers.map((n) => (
               <option key={n} value={n}>
@@ -55,16 +55,16 @@ export default function BasicFormSection({
             ))}
           </select>
         </div>
-      </div>
 
-      <div style={{ minWidth: 0, width: "100%", marginBottom: 16 }}>
-        <div style={{ marginBottom: 6, color: "#a1a1aa" }}>日付メモ</div>
-        <input
-          value={dateMemo}
-          onChange={(e) => setDateMemo(e.target.value)}
-          placeholder="例：3/10 ナイター"
-          style={{ ...fieldStyle(), minWidth: 0 }}
-        />
+        <div style={{ minWidth: 0 }}>
+          <div style={{ marginBottom: 6, color: "#a1a1aa" }}>日付メモ</div>
+          <input
+            value={dateMemo}
+            onChange={(e) => setDateMemo(e.target.value)}
+            placeholder="例：3/10 ナイター"
+            style={fieldStyle()}
+          />
+        </div>
       </div>
 
       <div style={{ minWidth: 0, width: "100%" }}>
@@ -72,7 +72,7 @@ export default function BasicFormSection({
         <select
           value={tarot}
           onChange={(e) => setTarot(e.target.value)}
-          style={{ ...fieldStyle(), minWidth: 0 }}
+          style={fieldStyle()}
         >
           <option value="">選択してください</option>
           {tarotCards.flatMap((card) => [
