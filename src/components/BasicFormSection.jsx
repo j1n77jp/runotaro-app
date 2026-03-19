@@ -1,6 +1,6 @@
 import { tarotCards } from "../data/cards";
 import { raceNumbers, venues } from "../data/constants";
-import { sectionStyle } from "../utils/styles";
+import { fieldStyle, sectionStyle } from "../utils/styles";
 
 export default function BasicFormSection({
   venue,
@@ -17,39 +17,50 @@ export default function BasicFormSection({
     <div style={sectionStyle()}>
       <h2 style={{ marginTop: 0 }}>基本入力</h2>
 
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 12, marginBottom: 16 }}>
-        <div>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "1fr 1fr 1fr",
+          gap: 12,
+          marginBottom: 16,
+        }}
+      >
+        <div style={{ minWidth: 0 }}>
           <div style={{ marginBottom: 6, color: "#a1a1aa" }}>場</div>
-          <select value={venue} onChange={(e) => setVenue(e.target.value)} style={{ width: "100%", padding: 10 }}>
+          <select value={venue} onChange={(e) => setVenue(e.target.value)} style={fieldStyle()}>
             {venues.map((v) => (
-              <option key={v} value={v}>{v}</option>
+              <option key={v} value={v}>
+                {v}
+              </option>
             ))}
           </select>
         </div>
 
-        <div>
+        <div style={{ minWidth: 0 }}>
           <div style={{ marginBottom: 6, color: "#a1a1aa" }}>レース番号</div>
-          <select value={raceNo} onChange={(e) => setRaceNo(e.target.value)} style={{ width: "100%", padding: 10 }}>
+          <select value={raceNo} onChange={(e) => setRaceNo(e.target.value)} style={fieldStyle()}>
             {raceNumbers.map((n) => (
-              <option key={n} value={n}>{n}R</option>
+              <option key={n} value={n}>
+                {n}R
+              </option>
             ))}
           </select>
         </div>
 
-        <div>
+        <div style={{ minWidth: 0 }}>
           <div style={{ marginBottom: 6, color: "#a1a1aa" }}>日付メモ</div>
           <input
             value={dateMemo}
             onChange={(e) => setDateMemo(e.target.value)}
             placeholder="例：3/10 ナイター"
-            style={{ width: "100%", padding: 10 }}
+            style={fieldStyle()}
           />
         </div>
       </div>
 
-      <div>
+      <div style={{ minWidth: 0 }}>
         <div style={{ marginBottom: 6, color: "#a1a1aa" }}>レース展開タロット</div>
-        <select value={tarot} onChange={(e) => setTarot(e.target.value)} style={{ width: "100%", padding: 10 }}>
+        <select value={tarot} onChange={(e) => setTarot(e.target.value)} style={fieldStyle()}>
           <option value="">選択してください</option>
           {tarotCards.flatMap((card) => [
             <option key={`${card.name}-normal`} value={card.name}>
