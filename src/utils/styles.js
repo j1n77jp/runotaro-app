@@ -31,6 +31,7 @@ export function sectionStyle() {
     borderRadius: 16,
     padding: 16,
     width: "100%",
+    maxWidth: "100%",
     boxSizing: "border-box",
   };
 }
@@ -42,15 +43,18 @@ export function statBoxStyle() {
     borderRadius: 14,
     padding: 14,
     width: "100%",
+    maxWidth: "100%",
     boxSizing: "border-box",
   };
 }
 
 export function fieldStyle() {
   return {
+    display: "block",
     width: "100%",
+    maxWidth: "100%",
     padding: 10,
     boxSizing: "border-box",
-    maxWidth: "100%",
+    font: "inherit",
   };
 }
