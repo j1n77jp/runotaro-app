@@ -30,6 +30,8 @@ export function sectionStyle() {
     border: "1px solid #3f3f46",
     borderRadius: 16,
     padding: 16,
+    width: "100%",
+    boxSizing: "border-box",
   };
 }
 
@@ -39,6 +41,8 @@ export function statBoxStyle() {
     border: "1px solid #3f3f46",
     borderRadius: 14,
     padding: 14,
+    width: "100%",
+    boxSizing: "border-box",
   };
 }
 
@@ -47,5 +51,6 @@ export function fieldStyle() {
     width: "100%",
     padding: 10,
     boxSizing: "border-box",
+    maxWidth: "100%",
   };
 }
