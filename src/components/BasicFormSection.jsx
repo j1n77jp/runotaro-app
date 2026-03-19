@@ -15,7 +15,7 @@ export default function BasicFormSection({
 }) {
   return (
     <div style={{ ...sectionStyle(), overflow: "hidden" }}>
-      <h2 style={{ marginTop: 0 }}>tesuttttttt</h2>
+      <h2 style={{ marginTop: 0 }}>基本入力</h2>
 
       <div
         style={{
