@@ -1,5 +1,5 @@
 import { resultBoatNumbers } from "../data/constants";
-import { sectionStyle } from "../utils/styles";
+import { fieldStyle, sectionStyle } from "../utils/styles";
 
 export default function ResultSection({
   result,
@@ -14,32 +14,68 @@ export default function ResultSection({
     <div style={sectionStyle()}>
       <h2 style={{ marginTop: 0 }}>結果入力</h2>
 
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr", gap: 12 }}>
-        {["first", "second", "third"].map((key, idx) => (
-          <div key={key}>
-            <div style={{ marginBottom: 6, color: "#a1a1aa" }}>{idx + 1}着</div>
-            <select
-              value={result[key]}
-              onChange={(e) => updateResult(key, e.target.value)}
-              style={{ width: "100%", padding: 10 }}
-            >
-              <option value="">選択</option>
-              {resultBoatNumbers.map((n) => (
-                <option key={`${key}-${n}`} value={n}>
-                  {n}号艇
-                </option>
-              ))}
-            </select>
-          </div>
-        ))}
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "1fr 1fr 1fr 1fr",
+          gap: 12,
+        }}
+      >
+        <div style={{ minWidth: 0 }}>
+          <div style={{ marginBottom: 6, color: "#a1a1aa" }}>1着</div>
+          <select
+            value={result.first}
+            onChange={(e) => updateResult("first", e.target.value)}
+            style={fieldStyle()}
+          >
+            <option value="">選択</option>
+            {resultBoatNumbers.map((n) => (
+              <option key={`f-${n}`} value={n}>
+                {n}号艇
+              </option>
+            ))}
+          </select>
+        </div>
 
-        <div>
+        <div style={{ minWidth: 0 }}>
+          <div style={{ marginBottom: 6, color: "#a1a1aa" }}>2着</div>
+          <select
+            value={result.second}
+            onChange={(e) => updateResult("second", e.target.value)}
+            style={fieldStyle()}
+          >
+            <option value="">選択</option>
+            {resultBoatNumbers.map((n) => (
+              <option key={`s-${n}`} value={n}>
+                {n}号艇
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div style={{ minWidth: 0 }}>
+          <div style={{ marginBottom: 6, color: "#a1a1aa" }}>3着</div>
+          <select
+            value={result.third}
+            onChange={(e) => updateResult("third", e.target.value)}
+            style={fieldStyle()}
+          >
+            <option value="">選択</option>
+            {resultBoatNumbers.map((n) => (
+              <option key={`t-${n}`} value={n}>
+                {n}号艇
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div style={{ minWidth: 0 }}>
           <div style={{ marginBottom: 6, color: "#a1a1aa" }}>払戻金</div>
           <input
             value={payout}
             onChange={(e) => setPayout(e.target.value)}
             placeholder="例：12840"
-            style={{ width: "100%", padding: 10 }}
+            style={fieldStyle()}
           />
         </div>
       </div>
