@@ -145,14 +145,29 @@ export default function App() {
     >
       <div
         style={{
-          maxWidth: 1300,
+          maxWidth: 1000,
           margin: "0 auto",
           width: "100%",
           minWidth: 0,
         }}
       >
-        <h1 style={{ fontSize: 32, marginBottom: 8 }}>🚤 ルノタロ競艇占い</h1>
-        <p style={{ color: "#a1a1aa", marginBottom: 24 }}>
+        <h1
+          style={{
+            fontSize: 32,
+            marginBottom: 8,
+            textAlign: "left",
+          }}
+        >
+          🚤 ルノタロ競艇占い
+        </h1>
+
+        <p
+          style={{
+            color: "#a1a1aa",
+            marginBottom: 24,
+            textAlign: "left",
+          }}
+        >
           タロット1枚で展開、1〜6艇にルノルマンを割り当ててAI補助予想する簡易版
         </p>
 
@@ -161,78 +176,59 @@ export default function App() {
             display: "grid",
             gridTemplateColumns: "1fr",
             gap: 20,
-            alignItems: "start",
             width: "100%",
             minWidth: 0,
           }}
         >
-          <div
-            style={{
-              display: "grid",
-              gap: 20,
-              minWidth: 0,
-              width: "100%",
-            }}
-          >
-            <BasicFormSection
-              venue={venue}
-              setVenue={setVenue}
-              raceNo={raceNo}
-              setRaceNo={setRaceNo}
-              dateMemo={dateMemo}
-              setDateMemo={setDateMemo}
-              tarot={tarot}
-              setTarot={setTarot}
-              tarotInfo={tarotInfo}
-            />
+          <BasicFormSection
+            venue={venue}
+            setVenue={setVenue}
+            raceNo={raceNo}
+            setRaceNo={setRaceNo}
+            dateMemo={dateMemo}
+            setDateMemo={setDateMemo}
+            tarot={tarot}
+            setTarot={setTarot}
+            tarotInfo={tarotInfo}
+          />
 
-            <BoatInputSection
-              boats={boats}
-              suggestion={suggestion}
-              selectedLenormandNames={selectedLenormandNames}
-              updateBoatCard={updateBoatCard}
-            />
+          <BoatInputSection
+            boats={boats}
+            suggestion={suggestion}
+            selectedLenormandNames={selectedLenormandNames}
+            updateBoatCard={updateBoatCard}
+          />
 
-            <ResultSection
-              result={result}
-              payout={payout}
-              setPayout={setPayout}
-              updateResult={updateResult}
-              resultHasDuplicate={resultHasDuplicate}
-              saveCurrent={saveCurrent}
-              resetForm={resetForm}
-            />
-          </div>
+          <MemoSection
+            venue={venue}
+            raceNo={raceNo}
+            tarotInfo={tarotInfo}
+            suggestion={suggestion}
+            aiSuggestion={aiSuggestion}
+            raceInsights={raceInsights}
+            hasRaceInput={hasRaceInput}
+            autoBetMemo={autoBetMemo}
+            memo={memo}
+            setMemo={setMemo}
+          />
 
-          <div
-            style={{
-              display: "grid",
-              gap: 20,
-              minWidth: 0,
-              width: "100%",
-            }}
-          >
-            <MemoSection
-              venue={venue}
-              raceNo={raceNo}
-              tarotInfo={tarotInfo}
-              suggestion={suggestion}
-              aiSuggestion={aiSuggestion}
-              raceInsights={raceInsights}
-              hasRaceInput={hasRaceInput}
-              autoBetMemo={autoBetMemo}
-              memo={memo}
-              setMemo={setMemo}
-            />
+          <ResultSection
+            result={result}
+            payout={payout}
+            setPayout={setPayout}
+            updateResult={updateResult}
+            resultHasDuplicate={resultHasDuplicate}
+            saveCurrent={saveCurrent}
+            resetForm={resetForm}
+          />
 
-            <StatsSection stats={stats} />
+          <StatsSection stats={stats} />
 
-            <SavedListSection
-              saved={saved}
-              clearAllSaved={clearAllSaved}
-              deleteSavedItem={deleteSavedItem}
-            />
-          </div>
+          <SavedListSection
+            saved={saved}
+            clearAllSaved={clearAllSaved}
+            deleteSavedItem={deleteSavedItem}
+          />
         </div>
       </div>
     </div>
