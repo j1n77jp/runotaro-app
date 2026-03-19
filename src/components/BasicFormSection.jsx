@@ -14,24 +14,24 @@ export default function BasicFormSection({
   tarotInfo,
 }) {
   return (
-    <div style={sectionStyle()}>
+    <div style={{ ...sectionStyle(), overflow: "hidden" }}>
       <h2 style={{ marginTop: 0 }}>基本入力</h2>
 
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+          gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
           gap: 12,
           marginBottom: 16,
           width: "100%",
         }}
       >
-        <div style={{ minWidth: 0, width: "100%" }}>
+        <div style={{ minWidth: 0 }}>
           <div style={{ marginBottom: 6, color: "#a1a1aa" }}>場</div>
           <select
             value={venue}
             onChange={(e) => setVenue(e.target.value)}
-            style={{ ...fieldStyle(), display: "block" }}
+            style={{ ...fieldStyle(), minWidth: 0 }}
           >
             {venues.map((v) => (
               <option key={v} value={v}>
@@ -41,12 +41,12 @@ export default function BasicFormSection({
           </select>
         </div>
 
-        <div style={{ minWidth: 0, width: "100%" }}>
+        <div style={{ minWidth: 0 }}>
           <div style={{ marginBottom: 6, color: "#a1a1aa" }}>レース番号</div>
           <select
             value={raceNo}
             onChange={(e) => setRaceNo(e.target.value)}
-            style={{ ...fieldStyle(), display: "block" }}
+            style={{ ...fieldStyle(), minWidth: 0 }}
           >
             {raceNumbers.map((n) => (
               <option key={n} value={n}>
@@ -55,16 +55,16 @@ export default function BasicFormSection({
             ))}
           </select>
         </div>
+      </div>
 
-        <div style={{ minWidth: 0, width: "100%" }}>
-          <div style={{ marginBottom: 6, color: "#a1a1aa" }}>日付メモ</div>
-          <input
-            value={dateMemo}
-            onChange={(e) => setDateMemo(e.target.value)}
-            placeholder="例：3/10 ナイター"
-            style={{ ...fieldStyle(), display: "block" }}
-          />
-        </div>
+      <div style={{ minWidth: 0, width: "100%", marginBottom: 16 }}>
+        <div style={{ marginBottom: 6, color: "#a1a1aa" }}>日付メモ</div>
+        <input
+          value={dateMemo}
+          onChange={(e) => setDateMemo(e.target.value)}
+          placeholder="例：3/10 ナイター"
+          style={{ ...fieldStyle(), minWidth: 0 }}
+        />
       </div>
 
       <div style={{ minWidth: 0, width: "100%" }}>
@@ -72,7 +72,7 @@ export default function BasicFormSection({
         <select
           value={tarot}
           onChange={(e) => setTarot(e.target.value)}
-          style={{ ...fieldStyle(), display: "block" }}
+          style={{ ...fieldStyle(), minWidth: 0 }}
         >
           <option value="">選択してください</option>
           {tarotCards.flatMap((card) => [
@@ -94,12 +94,13 @@ export default function BasicFormSection({
             borderRadius: 14,
             background: "#111827",
             border: "1px solid #374151",
+            overflow: "hidden",
           }}
         >
           <div style={{ fontSize: 22, fontWeight: "bold", marginBottom: 8 }}>
             {tarotInfo.id}. {tarotInfo.name}
           </div>
-          <div style={{ color: "#d4d4d8" }}>{tarotInfo.meaning}</div>
+          <div style={{ color: "#d4d4d8", wordBreak: "break-word" }}>{tarotInfo.meaning}</div>
         </div>
       )}
     </div>
