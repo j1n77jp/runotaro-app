@@ -41,3 +41,11 @@ export function statBoxStyle() {
     padding: 14,
   };
 }
+
+export function fieldStyle() {
+  return {
+    width: "100%",
+    padding: 10,
+    boxSizing: "border-box",
+  };
+}
