@@ -17,16 +17,17 @@ export default function ResultSection({
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "1fr 1fr 1fr 1fr",
+          gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))",
           gap: 12,
+          width: "100%",
         }}
       >
-        <div style={{ minWidth: 0 }}>
+        <div style={{ minWidth: 0, width: "100%" }}>
           <div style={{ marginBottom: 6, color: "#a1a1aa" }}>1着</div>
           <select
             value={result.first}
             onChange={(e) => updateResult("first", e.target.value)}
-            style={fieldStyle()}
+            style={{ ...fieldStyle(), display: "block" }}
           >
             <option value="">選択</option>
             {resultBoatNumbers.map((n) => (
@@ -37,12 +38,12 @@ export default function ResultSection({
           </select>
         </div>
 
-        <div style={{ minWidth: 0 }}>
+        <div style={{ minWidth: 0, width: "100%" }}>
           <div style={{ marginBottom: 6, color: "#a1a1aa" }}>2着</div>
           <select
             value={result.second}
             onChange={(e) => updateResult("second", e.target.value)}
-            style={fieldStyle()}
+            style={{ ...fieldStyle(), display: "block" }}
           >
             <option value="">選択</option>
             {resultBoatNumbers.map((n) => (
@@ -53,12 +54,12 @@ export default function ResultSection({
           </select>
         </div>
 
-        <div style={{ minWidth: 0 }}>
+        <div style={{ minWidth: 0, width: "100%" }}>
           <div style={{ marginBottom: 6, color: "#a1a1aa" }}>3着</div>
           <select
             value={result.third}
             onChange={(e) => updateResult("third", e.target.value)}
-            style={fieldStyle()}
+            style={{ ...fieldStyle(), display: "block" }}
           >
             <option value="">選択</option>
             {resultBoatNumbers.map((n) => (
@@ -69,13 +70,13 @@ export default function ResultSection({
           </select>
         </div>
 
-        <div style={{ minWidth: 0 }}>
+        <div style={{ minWidth: 0, width: "100%" }}>
           <div style={{ marginBottom: 6, color: "#a1a1aa" }}>払戻金</div>
           <input
             value={payout}
             onChange={(e) => setPayout(e.target.value)}
             placeholder="例：12840"
-            style={fieldStyle()}
+            style={{ ...fieldStyle(), display: "block" }}
           />
         </div>
       </div>
@@ -86,7 +87,14 @@ export default function ResultSection({
         </div>
       )}
 
-      <div style={{ display: "flex", gap: 12, marginTop: 16 }}>
+      <div
+        style={{
+          display: "flex",
+          gap: 12,
+          marginTop: 16,
+          flexWrap: "wrap",
+        }}
+      >
         <button
           onClick={saveCurrent}
           disabled={resultHasDuplicate}
